@@ -44,8 +44,6 @@ namespace Faker.Faker
 
         public object Create(Type type)
         {
-            if (_generatedObjectsCache.TryGetValue(type, out var existingObj))
-                return existingObj;
 
             var generator = _generators.FirstOrDefault(g => g.CanGenerate(type))
                 ?? throw new InvalidOperationException($"No generator for type {type}");
